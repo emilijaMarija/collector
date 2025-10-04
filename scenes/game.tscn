@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxtor230t6e10"]
+[gd_scene load_steps=4 format=3 uid="uid://bxtor230t6e10"]
 
 [ext_resource type="PackedScene" uid="uid://cfb1swjxldrl5" path="res://sprites/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bb31ss8xbxchw" path="res://src/common/ability_registry.gd" id="1_yqjtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(312.07596, 20)
 
 [node name="Main" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_yqjtg")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 
