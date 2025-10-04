@@ -4,7 +4,7 @@ class_name State
 
 var change_state
 var animated_sprite: AnimatedSprite2D
-var persistent_state: CharacterBody2D
+var persistent_state: PlayerStateMachine
 
 func _physics_process(_delta):
 	persistent_state.velocity.y += PlayerConstants.PHYSICS_G * _delta

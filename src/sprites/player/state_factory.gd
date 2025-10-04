@@ -1,18 +1,26 @@
 class_name StateFactory
 
-const STATE_IDLE = "idle"
-const STATE_RUN = "run"
-const STATE_FALL = "fall"
-const STATE_JUMP = "jump"
+enum {
+	STATE_IDLE,
+	STATE_WALK,
+	STATE_FALL,
+	STATE_JUMP,
+	STATE_JUMP_KNEEL,
+	STATE_LAND,
+	STATE_SPRINT,
+}
 
 var states
 
 func _init():
 	states = {
 		STATE_IDLE: IdleState,
-		STATE_RUN: RunState,
+		STATE_SPRINT: SprintState,
+		STATE_WALK: WalkState,
 		STATE_JUMP: PlayerJumpState,
 		STATE_FALL: PlayerFallState,
+		STATE_JUMP_KNEEL: PlayerJumpKneelState,
+		STATE_LAND: PlayerLandState,
 }
 
 func get_state(state_name):

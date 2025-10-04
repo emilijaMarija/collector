@@ -4,20 +4,21 @@
 [ext_resource type="Script" uid="uid://bb31ss8xbxchw" path="res://src/common/ability_registry.gd" id="1_yqjtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(312.07596, 20)
+size = Vector2(460.99997, 20)
 
 [node name="Main" type="Node2D"]
 
-[node name="Node" type="Node" parent="."]
+[node name="AbilityRegistry" type="Node" parent="."]
 script = ExtResource("1_yqjtg")
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." node_paths=PackedStringArray("ability_registry") instance=ExtResource("1_ig7tw")]
+ability_registry = NodePath("../AbilityRegistry")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-111.07596, 91.724686)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(146.03798, 0)
+position = Vector2(173.57594, 0)
 shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="."]

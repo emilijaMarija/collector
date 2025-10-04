@@ -1,5 +1,7 @@
 extends Node
 
+class_name AbilityRegistry
+
 enum Ability {
 	SPRINT,
 	DASH,
@@ -7,7 +9,7 @@ enum Ability {
 	HIGHER_JUMP
 }
 
-var _unlocked_abilities: Array[Ability] = []
+var _unlocked_abilities: Array[Ability] = [Ability.SPRINT, Ability.DOUBLE_JUMP, Ability.HIGHER_JUMP]
 
 func has_ability(ability: Ability):
 	return _unlocked_abilities.has(ability)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfb1swjxldrl5"]
 
-[ext_resource type="Script" uid="uid://de2a5vis8n0pg" path="res://src/sprites/player/persistent_state.gd" id="1_qj5tt"]
+[ext_resource type="Script" uid="uid://de2a5vis8n0pg" path="res://src/sprites/player/player_state_machine.gd" id="1_qj5tt"]
 [ext_resource type="SpriteFrames" uid="uid://cc7bmi0vvdd3f" path="res://sprites/player/guy.tres" id="1_xqq6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yuya"]
@@ -11,7 +11,7 @@ script = ExtResource("1_qj5tt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_xqq6n")
-animation = &"walk"
+animation = &"land"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

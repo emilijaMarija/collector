@@ -1,0 +1,25 @@
+extends Node
+
+class_name PlayerStateMachine
+
+@export var ability_registry: AbilityRegistry
+var num_jumps = 0
+var stamina = PlayerConstants.MAX_STAMINA
+
+var _state: State
+var _state_factory: StateFactory
+
+func _ready():
+	_state_factory = StateFactory.new()
+	change_state(StateFactory.STATE_IDLE)
+
+func _physics_process(_delta: float):
+	stamina += PlayerConstants.STAMINA_REGEN_RATE * _delta
+	stamina = min(stamina, PlayerConstants.MAX_STAMINA)
+
+func change_state(new_state_name):
+	if _state != null:
+		_state.queue_free()
+	_state = _state_factory.get_state(new_state_name).new()
+	_state.setup(Callable(self, "change_state"), $AnimatedSprite2D, self)
+	add_child(_state)
