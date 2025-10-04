@@ -10,7 +10,6 @@ func _ready():
 	change_state(StateFactory.STATE_IDLE)
 
 func change_state(new_state_name):
-	print("changing state to " + new_state_name)
 	if state != null:
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()

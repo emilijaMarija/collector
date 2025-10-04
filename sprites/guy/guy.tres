@@ -1,10 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://cc7bmi0vvdd3f"]
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cc7bmi0vvdd3f"]
 
+[ext_resource type="Texture2D" uid="uid://bn7x06rgijbvv" path="res://sprites/guy/fall/guy1.png" id="1_4asgh"]
 [ext_resource type="Texture2D" uid="uid://c5aa2ygh4u1k5" path="res://sprites/guy/stationary.png" id="1_vaiot"]
 [ext_resource type="Texture2D" uid="uid://6n2wi4sgg7th" path="res://sprites/guy/walk/guy1.png" id="2_cr4j3"]
+[ext_resource type="Texture2D" uid="uid://bse1ulptdqidw" path="res://sprites/guy/fall/guy2.png" id="2_ugxxy"]
 [ext_resource type="Texture2D" uid="uid://dll5rwkj4yxlc" path="res://sprites/guy/walk/guy2.png" id="3_do8nv"]
 [ext_resource type="Texture2D" uid="uid://ca8llrxfphdvh" path="res://sprites/guy/walk/guy3.png" id="4_ov4fy"]
+[ext_resource type="Texture2D" uid="uid://dtxslxg0fmrjt" path="res://sprites/guy/jump/guy1.png" id="4_u4sgt"]
 [ext_resource type="Texture2D" uid="uid://chl55wac3bmqu" path="res://sprites/guy/walk/guy4.png" id="5_4asgh"]
+[ext_resource type="Texture2D" uid="uid://cfhjhmh3511yk" path="res://sprites/guy/jump/guy2.png" id="5_4royo"]
 [ext_resource type="Texture2D" uid="uid://rnqnr6kkyp3" path="res://sprites/guy/walk/guy5.png" id="6_ugxxy"]
 [ext_resource type="Texture2D" uid="uid://dra8jgt34f426" path="res://sprites/guy/walk/guy6.png" id="7_u4sgt"]
 [ext_resource type="Texture2D" uid="uid://ecennvk8oir0" path="res://sprites/guy/walk/guy7.png" id="8_4royo"]
@@ -14,7 +18,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vaiot")
+"texture": ExtResource("1_4asgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ugxxy")
 }],
 "loop": false,
 "name": &"fall",
@@ -29,17 +36,11 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_vaiot")
+"duration": 0.71,
+"texture": ExtResource("4_u4sgt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_vaiot")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_vaiot")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_vaiot")
+"texture": ExtResource("5_4royo")
 }],
 "loop": false,
 "name": &"jump",
