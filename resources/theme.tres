@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dy0uvhrtyw06f"]
+
+[ext_resource type="FontFile" uid="uid://bnfvrujan7kti" path="res://resources/FanwoodText-Italic.ttf" id="1_7ct1h"]
+[ext_resource type="FontFile" uid="uid://c0fiir20rgarb" path="res://resources/FanwoodText-Regular.ttf" id="2_886mr"]
+
+[resource]
+default_font = ExtResource("2_886mr")
+RichTextLabel/fonts/italics_font = ExtResource("1_7ct1h")
+RichTextLabel/fonts/normal_font = ExtResource("2_886mr")

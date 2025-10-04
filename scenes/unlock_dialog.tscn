@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1wasgg0028b4"]
+
+[ext_resource type="Shader" uid="uid://wb5ts7m8527a" path="res://shaders/blur.gdshader" id="1_htufd"]
+[ext_resource type="Theme" uid="uid://dy0uvhrtyw06f" path="res://resources/theme.tres" id="2_htufd"]
+[ext_resource type="FontFile" uid="uid://bron36i8qv6t0" path="res://resources/CinzelDecorative-Regular.ttf" id="3_q1ugm"]
+[ext_resource type="Texture2D" uid="uid://cno103gly2ycn" path="res://sprites/filigree.png" id="3_rroxk"]
+[ext_resource type="Texture2D" uid="uid://dd60lk1c4i516" path="res://sprites/bottom_filigree.png" id="5_abfjg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htufd"]
+shader = ExtResource("1_htufd")
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_htufd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_htufd")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -135.5
+offset_right = 128.0
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="Embelishment" type="TextureRect" parent="Container/MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_rroxk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="TopText" type="Label" parent="Container"]
+layout_mode = 2
+text = "You unlocked"
+horizontal_alignment = 1
+
+[node name="CenterText" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1ugm")
+theme_override_font_sizes/font_size = 64
+text = "C"
+horizontal_alignment = 1
+
+[node name="BottomLabel" type="Label" parent="Container"]
+layout_mode = 2
+text = "use A and D to move left and right"
+horizontal_alignment = 1
+
+[node name="MarginContainerBottom" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Embelishment" type="TextureRect" parent="Container/MarginContainerBottom"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_abfjg")
+expand_mode = 3
+stretch_mode = 4
