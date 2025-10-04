@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5ugt0usq7acw"
+path="res://.godot/imported/Door unlock.wav-e2666c481ec1cb48ca4bc21c6c72f3a7.sample"
+
+[deps]
+
+source_file="res://sound/fx/Door unlock.wav"
+dest_files=["res://.godot/imported/Door unlock.wav-e2666c481ec1cb48ca4bc21c6c72f3a7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
