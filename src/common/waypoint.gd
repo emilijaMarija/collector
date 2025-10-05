@@ -5,12 +5,15 @@ class_name Waypoint
 enum WP {
 	TUNNEL,
 	SPAWN_POINT,
+	SPIKY_WALKWAY,
 }
 
 static func get_connection(waypoint: WP) -> Array[int]:
 	match waypoint:
 		WP.TUNNEL:
 			return [LevelFactory.LEVEL_1, LevelFactory.LEVEL_2]
+		WP.SPIKY_WALKWAY:
+			return [LevelFactory.LEVEL_1, LevelFactory.LEVEL_3]
 		_:
 			assert(false)
 			return []

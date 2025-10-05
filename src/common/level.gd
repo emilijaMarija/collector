@@ -13,6 +13,7 @@ var composer: Composer
 
 var ui_layer: CanvasLayer
 var player: PlayerStateMachine
+var camera: Camera2D
 
 const ABILITY_NOTES: Dictionary[Composer.Note, AbilityRegistry.Ability] = {
 	Composer.Note.A: AbilityRegistry.Ability.DOUBLE_JUMP,
@@ -27,8 +28,12 @@ const ABILITY_NOTES: Dictionary[Composer.Note, AbilityRegistry.Ability] = {
 func _spawn_player(waypoint: Waypoint):
 	player = PlayerStateMachine.create(ability_registry)
 	add_child(player)
-	player.global_position = waypoint.global_position
 	ui_layer = player.get_node("Camera/UILayer") as CanvasLayer
+	camera = player.get_node("Camera") as Camera2D
+	player.global_position = waypoint.global_position
+	
+	# Re-enable camera smoothing after a short delay
+	get_tree().create_timer(0.1).timeout.connect(func(): camera.position_smoothing_enabled = true)
 
 func _lvl_enter(wp: Waypoint.WP):
 	var waypoints = get_tree().get_nodes_in_group(Group.WAYPOINTS) as Array[Waypoint]

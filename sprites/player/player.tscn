@@ -19,6 +19,5 @@ shape = SubResource("RectangleShape2D_8yuya")
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -64.09)
-position_smoothing_enabled = true
 
 [node name="UILayer" type="CanvasLayer" parent="Camera"]
