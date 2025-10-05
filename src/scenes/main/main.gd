@@ -21,6 +21,7 @@ func _lvl_exit(waypoint: int):
 			target_lvl = conn
 			break
 	_switch_level(target_lvl)
+	_lvl.enter.emit(waypoint)
 
 func _ready() -> void:
 	_switch_level(LevelFactory.LEVEL_1)
