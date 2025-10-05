@@ -49,7 +49,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.21,
 "texture": ExtResource("4_b2kt8")
 }],
 "loop": false,
@@ -65,28 +65,28 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.3,
 "texture": ExtResource("5_nljew")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("6_n4rx3")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("7_ie5yv")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("8_uh4r7")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("9_70sbq")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("10_l345b")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("11_2vqe3")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("12_6nhjp")
 }],
 "loop": true,
