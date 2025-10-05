@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4rayw7a8appj"]
+
+[ext_resource type="SpriteFrames" uid="uid://l08pu66qq2x0" path="res://sprites/note/note.tres" id="1_2x37d"]
+[ext_resource type="Script" uid="uid://c0rod2w68oibv" path="res://src/sprites/note/note.gd" id="1_fic87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fic87"]
+size = Vector2(28, 26)
+
+[node name="Note" type="Area2D"]
+script = ExtResource("1_fic87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fic87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_2x37d")

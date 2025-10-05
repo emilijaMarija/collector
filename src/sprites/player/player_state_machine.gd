@@ -6,6 +6,7 @@ class_name PlayerStateMachine
 var num_jumps = 0
 var stamina = PlayerConstants.MAX_STAMINA
 var last_dash: float = 0
+var frozen = false
 
 var _state: State
 var _state_factory: StateFactory

@@ -12,6 +12,28 @@ enum Note {
 	G
 }
 
+
+static func get_note_string(note: Note) -> String:
+	match note:
+		Note.A:
+			return "A"
+		Note.B:
+			return "B"
+		Note.C:
+			return "C"
+		Note.D:
+			return "D"
+		Note.E:
+			return "E"
+		Note.F:
+			return "F"
+		Note.G:
+			return "G"
+		_:
+			assert(false, "unknown note given")
+			return ""
+
+
 var _soundtracks = {
 	Note.A: preload("res://sound/music/A.wav"),
 	Note.B: preload("res://sound/music/B.wav"),

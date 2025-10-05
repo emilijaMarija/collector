@@ -11,6 +11,11 @@ func _physics_process(_delta):
 	super._physics_process(_delta)
 	
 func _process(_delta):
+	if persistent_state.frozen:
+		persistent_state.velocity.x = 0.0
+		change_state.call(StateFactory.STATE_IDLE)
+		return
+	
 	if Input.is_action_pressed(GameInput.WALK_RIGHT):
 		animated_sprite.flip_h = false
 	elif Input.is_action_pressed(GameInput.WALK_LEFT):

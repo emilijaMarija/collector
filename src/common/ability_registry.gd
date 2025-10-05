@@ -6,10 +6,20 @@ enum Ability {
 	SPRINT,
 	DASH,
 	DOUBLE_JUMP,
-	HIGHER_JUMP
+	HIGHER_JUMP,
+	WALK,
+	UNLOCK_DOOR,
+	JUMP,
 }
 
-var _unlocked_abilities: Array[Ability] = [Ability.SPRINT, Ability.DOUBLE_JUMP, Ability.HIGHER_JUMP, Ability.DASH]
+var _unlocked_abilities: Array[Ability] = [
+	Ability.WALK,
+	#Ability.JUMP,
+	#Ability.SPRINT,
+	#Ability.DOUBLE_JUMP,
+	#Ability.HIGHER_JUMP,
+	#Ability.DASH
+	]
 
 func has_ability(ability: Ability):
 	return _unlocked_abilities.has(ability)

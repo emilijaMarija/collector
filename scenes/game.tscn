@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxtor230t6e10"]
+[gd_scene load_steps=7 format=3 uid="uid://bxtor230t6e10"]
 
 [ext_resource type="PackedScene" uid="uid://cfb1swjxldrl5" path="res://sprites/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://c3xtw6kj7tvxw" path="res://src/scenes/game/test.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://bb31ss8xbxchw" path="res://src/common/ability_registry.gd" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://b7f5kdnngeyag" path="res://src/common/composer.gd" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c4rayw7a8appj" path="res://sprites/note/note.tscn" id="5_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(460.99997, 20)
@@ -17,7 +18,7 @@ script = ExtResource("1_yqjtg")
 [node name="Composer" type="Node" parent="."]
 script = ExtResource("2_lnu2h")
 
-[node name="Player" parent="." node_paths=PackedStringArray("ability_registry") instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." node_paths=PackedStringArray("ability_registry") groups=["player"] instance=ExtResource("1_ig7tw")]
 ability_registry = NodePath("../AbilityRegistry")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -27,4 +28,9 @@ position = Vector2(-111.07596, 91.724686)
 position = Vector2(173.57594, 0)
 shape = SubResource("RectangleShape2D_ig7tw")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Note" parent="." groups=["notes"] instance=ExtResource("5_iywne")]
+position = Vector2(182, 63)
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="UILayer" type="CanvasLayer" parent="Camera"]

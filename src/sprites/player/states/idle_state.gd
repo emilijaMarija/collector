@@ -9,6 +9,8 @@ func _flip_direction():
 	animated_sprite.flip_h = not animated_sprite.flip_h
 
 func _process(_delta):
+	if persistent_state.frozen:
+		return
 	if Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) != 0:
 		change_state.call(StateFactory.STATE_WALK)
 	elif (Input.is_action_pressed(GameInput.JUMP)):
