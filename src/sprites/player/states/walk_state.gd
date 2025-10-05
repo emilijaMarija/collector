@@ -38,12 +38,16 @@ func _process(_delta):
 		_exit(StateFactory.STATE_IDLE)
 		return
 	
+	if not persistent_state.is_on_floor():
+		_exit(StateFactory.STATE_FALL)
+		return
+	
 	if Input.is_action_pressed(GameInput.WALK_RIGHT):
 		animated_sprite.flip_h = false
 	elif Input.is_action_pressed(GameInput.WALK_LEFT):
 		animated_sprite.flip_h = true
 	
-	if Input.is_action_pressed(GameInput.JUMP):
+	if persistent_state.can_jump() and Input.is_action_pressed(GameInput.JUMP):
 		_exit(StateFactory.STATE_JUMP_KNEEL)
 	elif Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) == 0:
 		persistent_state.velocity.x = 0

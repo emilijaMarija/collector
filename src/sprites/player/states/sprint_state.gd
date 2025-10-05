@@ -65,7 +65,7 @@ func _process(_delta):
 	elif Input.is_action_pressed(GameInput.WALK_LEFT):
 		animated_sprite.flip_h = true
 		
-	if Input.is_action_pressed(GameInput.JUMP):
+	if persistent_state.can_jump() and Input.is_action_pressed(GameInput.JUMP):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
 	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
 		change_state.call(StateFactory.STATE_DASH)

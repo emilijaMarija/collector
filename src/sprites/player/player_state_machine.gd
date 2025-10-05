@@ -18,6 +18,15 @@ static func create(ability_registry: AbilityRegistry) -> PlayerStateMachine:
 	node._ability_registry = ability_registry
 	return node
 
+func can_jump():
+	if not _ability_registry.has_ability(AbilityRegistry.Ability.JUMP):
+		return false
+	var has_double_jump = _ability_registry.has_ability(AbilityRegistry.Ability.DOUBLE_JUMP)
+	if has_double_jump:
+		return num_jumps <= 1
+	
+	return _state.persistent_state.is_on_floor()
+	
 func can_dash():
 	var cooldown_passed = Time.get_unix_time_from_system() - last_dash >= PlayerConstants.DASH_COOLDOWN_SECONDS
 	return cooldown_passed and _ability_registry.has_ability(AbilityRegistry.Ability.DASH)

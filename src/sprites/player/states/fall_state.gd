@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	elif Input.is_action_just_pressed(GameInput.WALK_LEFT):
 		animated_sprite.flip_h = true
 	
-	if persistent_state.num_jumps == 1 and persistent_state._ability_registry.has_ability(AbilityRegistry.Ability.DOUBLE_JUMP) and Input.is_action_just_pressed(GameInput.JUMP):
+	if persistent_state.can_jump() and Input.is_action_just_pressed(GameInput.JUMP):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
 		return
 	
