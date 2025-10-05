@@ -2,7 +2,7 @@ extends Node
 
 @onready var _ability_registry: AbilityRegistry = $AbilityRegistry
 @onready var _node_composer: Composer = $Composer
-@onready var _node_ui_layer: CanvasLayer = $Camera/UILayer
+@onready var _node_ui_layer: CanvasLayer = $Player/Camera/UILayer
 @onready var _node_player: PlayerStateMachine = $Player
 
 const ABILITY_NOTES: Dictionary[Composer.Note, AbilityRegistry.Ability] = {
@@ -36,6 +36,10 @@ func _handle_note_intersect(body: Node2D, note: CollectibleNote) -> void:
 	_ability_registry.unlock_ability(ABILITY_NOTES[note.note])
 
 func _ready() -> void:
+	assert(_ability_registry != null)
+	assert(_node_composer != null)
+	assert(_node_ui_layer != null)
+	assert(_node_player != null)
 	for note in get_tree().get_nodes_in_group(Group.NOTES):
 		(note as CollectibleNote).body_entered.connect(func (body: Node2D) -> void:
 			_handle_note_intersect(body, note))
