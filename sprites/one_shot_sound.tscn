@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://56mu5hbt3gxe"]
+
+[node name="OneShotSound" type="Node2D"]

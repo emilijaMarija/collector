@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4rayw7a8appj" path="res://sprites/note/note.tscn" id="5_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(460.99997, 20)
+size = Vector2(662, 20)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -25,7 +25,7 @@ ability_registry = NodePath("../AbilityRegistry")
 position = Vector2(-111.07596, 91.724686)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(173.57594, 0)
+position = Vector2(102.07595, 0)
 shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Note" parent="." groups=["notes"] instance=ExtResource("5_iywne")]

@@ -2,6 +2,12 @@ extends State
 
 class_name PlayerDashState
 
+const _dash_sounds = [
+	preload("res://sound/fx/dash/dash-1.wav"),
+	preload("res://sound/fx/dash/dash-2.wav"),
+	preload("res://sound/fx/dash/dash-3.wav"),
+]
+
 func _timeout():
 	persistent_state.velocity.x = 0
 	if persistent_state.is_on_floor():
@@ -15,6 +21,7 @@ func _timeout():
 
 
 func _ready():
+	OneShotSound.play(_dash_sounds.pick_random(), Volume.DASH)
 	persistent_state.last_dash = Time.get_unix_time_from_system()
 	persistent_state.velocity.y = 0
 	animated_sprite.play(PlayerAnimation.DASH)

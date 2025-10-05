@@ -65,6 +65,7 @@ func add_note(note: Note):
 	var player = AudioStreamPlayer.new()
 	add_child(player)
 	player.stream = _soundtracks[note]
+	player.volume_linear = Volume.BACKGROUND_MUSIC
 	player.play(offset)
 	player.add_to_group(GROUP_NOTE_PLAYERS)
 	

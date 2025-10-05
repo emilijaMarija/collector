@@ -14,11 +14,11 @@ enum Ability {
 
 var _unlocked_abilities: Array[Ability] = [
 	Ability.WALK,
-	#Ability.JUMP,
-	#Ability.SPRINT,
-	#Ability.DOUBLE_JUMP,
-	#Ability.HIGHER_JUMP,
-	#Ability.DASH
+	Ability.JUMP,
+	Ability.SPRINT,
+	Ability.DOUBLE_JUMP,
+	Ability.HIGHER_JUMP,
+	Ability.DASH
 	]
 
 func has_ability(ability: Ability):
