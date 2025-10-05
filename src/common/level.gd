@@ -42,12 +42,15 @@ func _lvl_enter(wp: Waypoint.WP):
 			_spawn_player(waypoint)
 			break
 
+func _emit_exit(target: Waypoint.WP):
+	exit.emit(target)
+
 func _set_up_portals():
 	var portals = get_tree().get_nodes_in_group(Group.PORTALS) as Array[Portal]
 	for portal in portals:
 		portal.body_entered.connect(func(body: Node2D) -> void:
 			if body == player:
-				exit.emit(portal.target)
+				call_deferred("_emit_exit", portal.target)
 				)
 
 func _handle_note_intersect(body: Node2D, note: CollectibleNote) -> void:

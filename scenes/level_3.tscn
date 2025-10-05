@@ -23,7 +23,7 @@ tile_set = ExtResource("3_hhfj6")
 [node name="Waypoints" type="Node" parent="."]
 
 [node name="Spiky walkway" type="Node2D" parent="Waypoints" groups=["waypoints"]]
-position = Vector2(1138, -163)
+position = Vector2(1170, -164)
 script = ExtResource("5_ha73p")
 wp = 2
 
