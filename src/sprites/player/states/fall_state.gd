@@ -23,4 +23,6 @@ func _physics_process(_delta):
 			change_state.call(StateFactory.STATE_WALK)
 		else:
 			change_state.call(StateFactory.STATE_IDLE)
+	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
+		change_state.call(StateFactory.STATE_DASH)
 	super._physics_process(_delta)

@@ -13,3 +13,5 @@ func _process(_delta):
 		change_state.call(StateFactory.STATE_WALK)
 	elif (Input.is_action_pressed(GameInput.JUMP)):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
+	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
+		change_state.call(StateFactory.STATE_DASH)

@@ -16,7 +16,6 @@ func _process(_delta):
 	elif Input.is_action_pressed(GameInput.WALK_LEFT):
 		animated_sprite.flip_h = true
 	
-	
 	if Input.is_action_pressed(GameInput.JUMP):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
 	elif Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) == 0:
@@ -24,3 +23,5 @@ func _process(_delta):
 		change_state.call(StateFactory.STATE_IDLE)
 	elif Input.is_action_just_pressed(GameInput.SPRINT) and persistent_state.stamina >= PlayerConstants.MIN_SPRINT_STAMINA_THRESHOLD:
 		change_state.call(StateFactory.STATE_SPRINT)
+	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
+		change_state.call(StateFactory.STATE_DASH)

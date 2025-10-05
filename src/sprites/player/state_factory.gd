@@ -8,6 +8,7 @@ enum {
 	STATE_JUMP_KNEEL,
 	STATE_LAND,
 	STATE_SPRINT,
+	STATE_DASH,
 }
 
 var states
@@ -21,6 +22,7 @@ func _init():
 		STATE_FALL: PlayerFallState,
 		STATE_JUMP_KNEEL: PlayerJumpKneelState,
 		STATE_LAND: PlayerLandState,
+		STATE_DASH: PlayerDashState,
 }
 
 func get_state(state_name):

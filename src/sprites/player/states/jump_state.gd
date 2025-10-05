@@ -28,3 +28,6 @@ func _process(_delta):
 		animated_sprite.flip_h = false
 	elif Input.is_action_just_pressed(GameInput.WALK_LEFT):
 		animated_sprite.flip_h = true
+	
+	if persistent_state.can_dash() and persistent_state.is_attempting_dash():
+		change_state.call(StateFactory.STATE_DASH)
