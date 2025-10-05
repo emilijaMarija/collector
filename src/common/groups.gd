@@ -4,3 +4,5 @@ class_name Group
 
 const NOTES = "notes"
 const PLAYER = "player"
+const WAYPOINTS = "waypoints"
+const PORTALS = "portals"

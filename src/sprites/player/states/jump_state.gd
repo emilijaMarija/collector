@@ -26,7 +26,7 @@ func _ready():
 	animated_sprite.play(PlayerAnimation.JUMP)
 	
 	var velocity = PlayerConstants.JUMP_VELOCITY
-	if persistent_state.ability_registry.has_ability(AbilityRegistry.Ability.HIGHER_JUMP):
+	if persistent_state._ability_registry.has_ability(AbilityRegistry.Ability.HIGHER_JUMP):
 		velocity = PlayerConstants.HIGH_JUMP_VELOCITY
 	
 	persistent_state.velocity.y = -1.0 * velocity
@@ -37,7 +37,7 @@ func _physics_process(_delta):
 		change_state.call(StateFactory.STATE_FALL)
 		return
 		
-	if persistent_state.num_jumps == 1 and persistent_state.ability_registry.has_ability(AbilityRegistry.Ability.DOUBLE_JUMP) and Input.is_action_just_pressed(GameInput.JUMP):
+	if persistent_state.num_jumps == 1 and persistent_state._ability_registry.has_ability(AbilityRegistry.Ability.DOUBLE_JUMP) and Input.is_action_just_pressed(GameInput.JUMP):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
 		return
 	super._physics_process(_delta)

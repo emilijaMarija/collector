@@ -25,6 +25,8 @@ window/stretch/mode="canvas_items"
 
 notes="Group for all collectible notes"
 player="Group for player sprite"
+waypoints=""
+portals=""
 
 [input]
 
