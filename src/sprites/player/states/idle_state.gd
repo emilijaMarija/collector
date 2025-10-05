@@ -10,6 +10,7 @@ func _flip_direction():
 
 func _process(_delta):
 	if persistent_state.frozen:
+		persistent_state.velocity.x = 0
 		return
 	if Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) != 0:
 		change_state.call(StateFactory.STATE_WALK)
