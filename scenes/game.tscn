@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxtor230t6e10"]
+[gd_scene load_steps=6 format=3 uid="uid://bxtor230t6e10"]
 
 [ext_resource type="PackedScene" uid="uid://cfb1swjxldrl5" path="res://sprites/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://c3xtw6kj7tvxw" path="res://src/scenes/game/test.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://bb31ss8xbxchw" path="res://src/common/ability_registry.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://b7f5kdnngeyag" path="res://src/common/composer.gd" id="2_lnu2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(460.99997, 20)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_lbhrr")
 
 [node name="AbilityRegistry" type="Node" parent="."]
 script = ExtResource("1_yqjtg")
+
+[node name="Composer" type="Node" parent="."]
+script = ExtResource("2_lnu2h")
 
 [node name="Player" parent="." node_paths=PackedStringArray("ability_registry") instance=ExtResource("1_ig7tw")]
 ability_registry = NodePath("../AbilityRegistry")
