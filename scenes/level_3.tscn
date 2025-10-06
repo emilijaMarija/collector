@@ -48,6 +48,11 @@ position = Vector2(1170, -164)
 script = ExtResource("5_ha73p")
 wp = 2
 
+[node name="Spiky tunnel" type="Node2D" parent="Waypoints" groups=["waypoints"]]
+position = Vector2(-816, -60)
+script = ExtResource("5_ha73p")
+wp = 3
+
 [node name="Portals" type="Node" parent="."]
 
 [node name="Spiky walkway" type="Area2D" parent="Portals" groups=["portals"]]
