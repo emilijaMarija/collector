@@ -15,6 +15,7 @@ var _top_text: String
 var _center_text: String
 var _center_bottom_text: String
 var _bottom_text: String
+var _can_close = false
 
 @warning_ignore("shadowed_variable")
 static func create(top_text: String, center_text: String, center_bottom_text: String, bottom_text: String) -> UnlockDialog:
@@ -31,6 +32,7 @@ func _ready() -> void:
 	_change_center_text(_center_text)
 	_change_center_bottom_text(_center_bottom_text)
 	_change_bottom_text(_bottom_text)
+	get_tree().create_timer(1.5).timeout.connect(func(): _can_close = true)
 
 
 func _change_top_text(text: String):
@@ -50,7 +52,7 @@ func _change_bottom_text(text: String):
 
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
+	if (event is InputEventMouseButton or event is InputEventKey) and event.pressed:
+		if _can_close:
 			queue_free()
 			on_dismiss.emit()

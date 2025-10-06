@@ -14,9 +14,9 @@ enum Ability {
 
 var _unlocked_abilities: Array[Ability] = [
 	Ability.WALK,
-	Ability.JUMP,
+	#Ability.JUMP,
 	#Ability.SPRINT,
-	Ability.DOUBLE_JUMP,
+	#Ability.DOUBLE_JUMP,
 	#Ability.HIGHER_JUMP,
 	#Ability.DASH
 	]
