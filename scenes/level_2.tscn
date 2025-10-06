@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://1kt6nkpqo1oh"]
+[gd_scene load_steps=9 format=4 uid="uid://1kt6nkpqo1oh"]
 
 [ext_resource type="Script" uid="uid://bie22cvnorun6" path="res://src/scenes/game/level_2.gd" id="1_3bmlt"]
 [ext_resource type="Texture2D" uid="uid://dvfbexyw2bclr" path="res://sprites/map/background_trees/layer1.png" id="2_wo48x"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cd3w1ldrgux6g" path="res://sprites/map/background_trees/layer0.png" id="3_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://c4rayw7a8appj" path="res://sprites/note/note.tscn" id="4_y0kc7"]
 [ext_resource type="Script" uid="uid://bv7wihm70a6fb" path="res://src/common/waypoint.gd" id="5_ne2mo"]
+[ext_resource type="Script" uid="uid://sj0dokp5eenu" path="res://src/common/portal.gd" id="7_y0kc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2mo"]
+size = Vector2(20, 130)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_3bmlt")
@@ -40,4 +44,18 @@ note = 1
 position = Vector2(-985, -997)
 script = ExtResource("5_ne2mo")
 
+[node name="Roots walkway" type="Node2D" parent="Waypoints" groups=["waypoints"]]
+position = Vector2(-1136, -54)
+script = ExtResource("5_ne2mo")
+wp = 4
+
 [node name="Portals" type="Node" parent="."]
+
+[node name="Roots walkway" type="Area2D" parent="Portals" groups=["portals"]]
+position = Vector2(-1188, -64)
+script = ExtResource("7_y0kc7")
+target = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Roots walkway"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ne2mo")

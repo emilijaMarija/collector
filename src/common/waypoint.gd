@@ -8,6 +8,7 @@ enum WP {
 	SPIKY_WALKWAY,
 	SPIKY_TUNNEL,
 	ROOTS_WALKWAY,
+	HOUSE_WALKWAY,
 }
 
 static func get_connection(waypoint: WP) -> Array[int]:
@@ -20,6 +21,8 @@ static func get_connection(waypoint: WP) -> Array[int]:
 			return [LevelFactory.LEVEL_4, LevelFactory.LEVEL_3]
 		WP.ROOTS_WALKWAY:
 			return [LevelFactory.LEVEL_4, LevelFactory.LEVEL_2]
+		WP.HOUSE_WALKWAY:
+			return [LevelFactory.LEVEL_2, LevelFactory.LEVEL_5]
 		_:
 			assert(false)
 			return []
