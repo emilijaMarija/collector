@@ -45,6 +45,7 @@ var _soundtracks = {
 }
 
 var _available_notes: Array[Note] = []
+var _started_playing: float
 
 const GROUP_NOTE_PLAYERS = "note-player"
 
@@ -58,15 +59,13 @@ func add_note(note: Note):
 	
 	# Take any player, and get the current offset. If no players are present,
 	# start from beginning
-	var players = SceneTreeHelper.get_children_in_group(self, GROUP_NOTE_PLAYERS)
-	var offset = 0.0
-	if players.size() != 0:
-		offset = players[0].get_playback_position()
+	if _started_playing == 0:
+		_started_playing = Time.get_unix_time_from_system()
 	var player = AudioStreamPlayer.new()
 	add_child(player)
 	player.stream = _soundtracks[note]
 	player.volume_linear = Volume.BACKGROUND_MUSIC
-	player.play(offset)
+	player.play(Time.get_unix_time_from_system() - _started_playing)
 	player.add_to_group(GROUP_NOTE_PLAYERS)
 	
 func is_note_available(note: Note):
