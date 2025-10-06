@@ -199,7 +199,7 @@ shape = SubResource("RectangleShape2D_igmy8")
 libraries = {
 &"": SubResource("AnimationLibrary_guvtl")
 }
-autoplay = "Platform1"
+autoplay = "Platform2"
 
 [node name="Platform3" type="Sprite2D" parent="."]
 position = Vector2(-448, -336)
@@ -214,4 +214,4 @@ shape = SubResource("RectangleShape2D_wdtqu")
 libraries = {
 &"": SubResource("AnimationLibrary_guvtl")
 }
-autoplay = "Platform1"
+autoplay = "Platform3"
