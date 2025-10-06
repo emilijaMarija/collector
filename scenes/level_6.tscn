@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ciir12dsv1o4r"]
+[gd_scene load_steps=12 format=4 uid="uid://ciir12dsv1o4r"]
 
 [ext_resource type="Script" uid="uid://bsfddt1imvffx" path="res://src/scenes/game/level_6.gd" id="1_hi6ks"]
 [ext_resource type="Texture2D" uid="uid://ba3x0eg5q5t2j" path="res://sprites/map/tree_house_bg.png" id="2_6x5s0"]
@@ -14,6 +14,9 @@ size = Vector2(20, 133)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwnnm"]
 radius = 28.01785
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fidgd"]
+size = Vector2(48, 665)
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_hi6ks")
@@ -80,3 +83,11 @@ texture = ExtResource("8_fidgd")
 position = Vector2(-677, 119)
 texture = ExtResource("8_fidgd")
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-886, -178.5)
+shape = SubResource("RectangleShape2D_fidgd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
