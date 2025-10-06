@@ -22,7 +22,7 @@ static func get_connection(waypoint: WP) -> Array[int]:
 		WP.ROOTS_WALKWAY:
 			return [LevelFactory.LEVEL_4, LevelFactory.LEVEL_2]
 		WP.HOUSE_WALKWAY:
-			return [LevelFactory.LEVEL_2, LevelFactory.LEVEL_5]
+			return [LevelFactory.LEVEL_1, LevelFactory.LEVEL_5]
 		_:
 			assert(false)
 			return []

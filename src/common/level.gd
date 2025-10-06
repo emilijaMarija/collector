@@ -40,7 +40,8 @@ func _lvl_enter(wp: Waypoint.WP):
 	for waypoint in waypoints:
 		if waypoint.wp == wp:
 			_spawn_player(waypoint)
-			break
+			return
+	assert(false, "no matching waypoint found in level. wp ID: %d" % wp)
 
 func _emit_exit(target: Waypoint.WP):
 	exit.emit(target)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bxtor230t6e10"]
+[gd_scene load_steps=11 format=4 uid="uid://bxtor230t6e10"]
 
 [ext_resource type="Script" uid="uid://c3xtw6kj7tvxw" path="res://src/scenes/game/level_1.gd" id="1_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://dvfbexyw2bclr" path="res://sprites/map/background_trees/layer1.png" id="2_pa8r4"]
@@ -13,6 +13,9 @@ size = Vector2(130, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
 size = Vector2(52.21, 99.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15mv3"]
+size = Vector2(20, 95)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pa8r4")
@@ -53,6 +56,11 @@ position = Vector2(-894, -97)
 script = ExtResource("8_15mv3")
 wp = 2
 
+[node name="House walkway" type="Node2D" parent="Waypoints" groups=["waypoints"]]
+position = Vector2(916, -31)
+script = ExtResource("8_15mv3")
+wp = 5
+
 [node name="Portals" type="Node" parent="."]
 
 [node name="Tunnel" type="Area2D" parent="Portals" groups=["portals"]]
@@ -70,3 +78,12 @@ target = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Spiky walkway"]
 shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="House walkway" type="Area2D" parent="Portals" groups=["portals"]]
+position = Vector2(971, -47)
+script = ExtResource("6_fcfvj")
+target = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/House walkway"]
+position = Vector2(-4, 2)
+shape = SubResource("RectangleShape2D_15mv3")
