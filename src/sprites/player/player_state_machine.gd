@@ -31,6 +31,10 @@ func can_dash():
 	var cooldown_passed = Time.get_unix_time_from_system() - last_dash >= PlayerConstants.DASH_COOLDOWN_SECONDS
 	return cooldown_passed and _ability_registry.has_ability(AbilityRegistry.Ability.DASH)
 
+func can_sprint():
+	return _ability_registry.has_ability(AbilityRegistry.Ability.SPRINT) and stamina >= PlayerConstants.MIN_SPRINT_STAMINA_THRESHOLD
+	
+
 func is_attempting_dash():
 	return Input.is_action_just_pressed(GameInput.DASH)
 

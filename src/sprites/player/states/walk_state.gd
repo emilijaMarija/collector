@@ -52,7 +52,7 @@ func _process(_delta):
 	elif Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) == 0:
 		persistent_state.velocity.x = 0
 		_exit(StateFactory.STATE_IDLE)
-	elif Input.is_action_just_pressed(GameInput.SPRINT) and persistent_state.stamina >= PlayerConstants.MIN_SPRINT_STAMINA_THRESHOLD:
+	elif Input.is_action_just_pressed(GameInput.SPRINT) and persistent_state.can_sprint():
 		_exit(StateFactory.STATE_SPRINT)
 	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
 		_exit(StateFactory.STATE_DASH)
