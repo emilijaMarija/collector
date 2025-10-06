@@ -30,6 +30,7 @@ static func create(top_text: String, center_text: String, center_bottom_text: St
 
 
 func _ready() -> void:
+	get_tree().create_tween().tween_property(self, "modulate:a", 1.0, 1.0)
 	_change_top_text(_top_text)
 	_change_center_text(_center_text)
 	_change_center_bottom_text(_center_bottom_text)
@@ -57,5 +58,8 @@ func _change_bottom_text(text: String):
 func _input(event):
 	if (event is InputEventMouseButton or event is InputEventKey) and event.pressed:
 		if _can_close:
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "modulate:a", 0, 1.0)
+			await tween.finished
 			queue_free()
 			on_dismiss.emit()

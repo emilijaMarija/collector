@@ -12,6 +12,7 @@
 shader = ExtResource("1_htufd")
 
 [node name="ColorRect" type="ColorRect"]
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_htufd")
 anchors_preset = 15
 anchor_right = 1.0
