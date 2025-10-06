@@ -4,6 +4,7 @@ class_name PlayerAnimation
 
 const IDLE = "idle"
 const JUMP = "jump"
+const DOUBLE_JUMP = "double_jump"
 const JUMP_KNEEL = "jump_kneel"
 const WALK = "walk"
 const SPRINT = "sprint"

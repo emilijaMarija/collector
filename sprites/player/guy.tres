@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cc7bmi0vvdd3f"]
+[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://cc7bmi0vvdd3f"]
 
 [ext_resource type="Texture2D" uid="uid://df02pa7ttrs3c" path="res://sprites/player/dash/guy1.png" id="1_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://bn7x06rgijbvv" path="res://sprites/player/fall/guy1.png" id="1_yoh8e"]
@@ -13,9 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://6n2wi4sgg7th" path="res://sprites/player/walk/guy1.png" id="5_nljew"]
 [ext_resource type="Texture2D" uid="uid://cqktrsxxpsj4o" path="res://sprites/player/dash/guy6.png" id="6_gcm87"]
 [ext_resource type="Texture2D" uid="uid://dll5rwkj4yxlc" path="res://sprites/player/walk/guy2.png" id="6_n4rx3"]
+[ext_resource type="Texture2D" uid="uid://blfcd23cncnvy" path="res://sprites/player/double_jump/guy1.png" id="7_6nhjp"]
 [ext_resource type="Texture2D" uid="uid://ca8llrxfphdvh" path="res://sprites/player/walk/guy3.png" id="7_ie5yv"]
+[ext_resource type="Texture2D" uid="uid://7yt4qecwd7mh" path="res://sprites/player/double_jump/guy2.png" id="8_gcm87"]
 [ext_resource type="Texture2D" uid="uid://chl55wac3bmqu" path="res://sprites/player/walk/guy4.png" id="8_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://rnqnr6kkyp3" path="res://sprites/player/walk/guy5.png" id="9_70sbq"]
+[ext_resource type="Texture2D" uid="uid://c270i53xqulb6" path="res://sprites/player/double_jump/guy3.png" id="9_qyvhh"]
+[ext_resource type="Texture2D" uid="uid://cm73cayw1xmwi" path="res://sprites/player/double_jump/guy4.png" id="10_ioyxl"]
 [ext_resource type="Texture2D" uid="uid://dra8jgt34f426" path="res://sprites/player/walk/guy6.png" id="10_l345b"]
 [ext_resource type="Texture2D" uid="uid://ecennvk8oir0" path="res://sprites/player/walk/guy7.png" id="11_2vqe3"]
 [ext_resource type="Texture2D" uid="uid://qg3vyrexroxt" path="res://sprites/player/walk/guy8.png" id="12_6nhjp"]
@@ -43,6 +47,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6nhjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gcm87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qyvhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ioyxl")
+}],
+"loop": false,
+"name": &"double_jump",
 "speed": 20.0
 }, {
 "frames": [{

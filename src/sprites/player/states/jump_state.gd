@@ -23,7 +23,10 @@ func _ready():
 		OneShotSound.play(_high_jump.pick_random(), Volume.HIGH_JUMP)
 	
 	persistent_state.num_jumps+=1
-	animated_sprite.play(PlayerAnimation.JUMP)
+	if persistent_state.is_on_floor():
+		animated_sprite.play(PlayerAnimation.JUMP)
+	else:
+		animated_sprite.play(PlayerAnimation.DOUBLE_JUMP)
 	
 	var velocity = PlayerConstants.JUMP_VELOCITY
 	if persistent_state._ability_registry.has_ability(AbilityRegistry.Ability.HIGHER_JUMP):
