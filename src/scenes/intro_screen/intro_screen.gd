@@ -30,6 +30,20 @@ var animation_names = {
 	ANIM.LAST: "last_anim"
 }
 
+const _unlock_sound: AudioStream = preload("res://sound/music/ability_unlock.wav")
+
+const _guitar_talk_sounds: Array[AudioStream] = [
+	preload("res://sound/music/guitar_talk_1.wav"),
+	preload("res://sound/music/guitar_talk_2.wav"),
+	preload("res://sound/music/guitar_talk_3.wav")
+]
+
+const _volumes: Array[float] = [
+	Volume.GUITAR_TALK_1,
+	Volume.GUITAR_TALK_2,
+	Volume.GUITAR_TALK_3,
+]
+
 func _play_jingle():
 	OneShotSound.play(_intro_jingle, Volume.INTRO_JINGLE)
 
@@ -47,5 +61,13 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == animation_names[ANIM.FIRST]:
+		OneShotSound.play(_guitar_talk_sounds[0], Volume.GUITAR_TALK_1)
+	elif anim_name == animation_names[ANIM.SECOND]:
+		OneShotSound.play(_guitar_talk_sounds[1], Volume.GUITAR_TALK_2)
+	elif anim_name == animation_names[ANIM.THIRD]:
+		OneShotSound.play(_guitar_talk_sounds[2], Volume.GUITAR_TALK_3)
+	elif anim_name == animation_names[ANIM.UNLOCK]:
+		OneShotSound.play(_unlock_sound, Volume.UNLOCK_JINGLE)
 	if anim_name == animation_names[ANIM.LAST]:
 		end.emit()
