@@ -70,6 +70,11 @@ animations = [{
 "name": &"dead",
 "speed": 12.0
 }, {
+"frames": [],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_6nhjp")

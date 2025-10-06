@@ -27,6 +27,7 @@ notes="Group for all collectible notes"
 player="Group for player sprite"
 waypoints=""
 portals=""
+lethal_areas=""
 
 [input]
 

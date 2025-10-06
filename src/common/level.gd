@@ -8,6 +8,7 @@ signal exit(waypoint: int)
 signal enter(waypoint: int)
 
 var level: int
+var saved_waypoint: Waypoint.WP
 var ability_registry: AbilityRegistry
 var composer: Composer
 
@@ -25,23 +26,37 @@ const ABILITY_NOTES: Dictionary[Composer.Note, AbilityRegistry.Ability] = {
 	Composer.Note.G: AbilityRegistry.Ability.DASH,
 }
 
+# How long to show player after death
+const DIE_DELAY_SECONDS: float = 1.5
+
 func _spawn_player(waypoint: Waypoint):
 	player = PlayerStateMachine.create(ability_registry)
-	add_child(player)
 	ui_layer = player.get_node("Camera/UILayer") as CanvasLayer
 	camera = player.get_node("Camera") as Camera2D
 	player.global_position = waypoint.global_position
+	add_child(player)
 	
 	# Re-enable camera smoothing after a short delay
 	get_tree().create_timer(0.1).timeout.connect(func(): camera.position_smoothing_enabled = true)
 
-func _lvl_enter(wp: Waypoint.WP):
+func _die():
+	player.change_state(StateFactory.STATE_DIE)
+	get_tree().create_timer(DIE_DELAY_SECONDS).timeout.connect(func():
+		remove_child(player)
+		_spawn_player(_find_waypoint(saved_waypoint))
+		)
+
+func _find_waypoint(wp: Waypoint.WP) -> Waypoint:
 	var waypoints = get_tree().get_nodes_in_group(Group.WAYPOINTS) as Array[Waypoint]
 	for waypoint in waypoints:
 		if waypoint.wp == wp:
-			_spawn_player(waypoint)
-			return
+			return waypoint
 	assert(false, "no matching waypoint found in level. wp ID: %d" % wp)
+	return null
+
+func _lvl_enter(wp: Waypoint.WP):
+	saved_waypoint = wp
+	_spawn_player(_find_waypoint(wp))
 
 func _emit_exit(target: Waypoint.WP):
 	exit.emit(target)
@@ -79,7 +94,16 @@ func _set_up_note_interactions():
 		(note as CollectibleNote).body_entered.connect(func (body: Node2D) -> void:
 			_handle_note_intersect(body, note))
 
+func _set_up_lethal_areas():
+	var areas = get_tree().get_nodes_in_group(Group.LETHAL_AREAS) as Array[Area2D]
+	for area in areas:
+		assert(area is Area2D)
+		area.body_entered.connect(func(body: Node2D):
+			if body == player:
+				call_deferred("_die"))
+
 func _ready() -> void:
 	enter.connect(_lvl_enter)
 	_set_up_portals()
 	_set_up_note_interactions()
+	_set_up_lethal_areas()
