@@ -7,34 +7,6 @@
 [ext_resource type="FontFile" uid="uid://bron36i8qv6t0" path="res://resources/CinzelDecorative-Regular.ttf" id="5_dc7ax"]
 [ext_resource type="FontFile" uid="uid://bnfvrujan7kti" path="res://resources/FanwoodText-Italic.ttf" id="6_14uot"]
 
-[sub_resource type="Animation" id="Animation_q1oon"]
-resource_name = "intro_screen"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopMargin:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(9.033334, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(8, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_2i7sm"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,6 +80,62 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q1oon"]
+resource_name = "intro_screen"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopMargin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(9.033334, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(8, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a7v8x"]
+resource_name = "last_anim"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_g5fjw"]
@@ -206,34 +234,6 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_a7v8x"]
-resource_name = "last_anim"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hukxe"]
 _data = {
 &"RESET": SubResource("Animation_2i7sm"),
@@ -267,7 +267,7 @@ theme_override_constants/margin_top = 32
 [node name="TopText" type="Label" parent="TopMargin"]
 layout_mode = 2
 theme = ExtResource("2_q1oon")
-text = "That was awful what they did to us"
+text = "That was awful what they did to us."
 horizontal_alignment = 1
 
 [node name="TopMargin2" type="MarginContainer" parent="."]
@@ -281,7 +281,7 @@ theme_override_constants/margin_top = 32
 [node name="TopText2" type="Label" parent="TopMargin2"]
 layout_mode = 2
 theme = ExtResource("2_q1oon")
-text = "Fortunately I manage to save this"
+text = "Fortunately I managed to save this."
 horizontal_alignment = 1
 
 [node name="TopMargin3" type="MarginContainer" parent="."]
@@ -296,7 +296,7 @@ theme_override_constants/margin_top = 32
 layout_mode = 2
 theme = ExtResource("2_q1oon")
 text = "Take it.
-You look better suited to use it and save us all"
+You look better suited to use it and save us all."
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
