@@ -10,6 +10,11 @@ enum WP {
 	ROOTS_WALKWAY,
 	HOUSE_WALKWAY,
 	END_TUNNEL,
+	BEFORE_CRUSHER,
+	AFTER_CRUSHER,
+	BEFORE_SPIKES,
+	IN_BETWEEN_SPIKES,
+	AFTER_SPIKES,
 }
 
 static func get_connection(waypoint: WP) -> Array[int]:

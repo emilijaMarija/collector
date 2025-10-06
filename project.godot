@@ -29,6 +29,7 @@ waypoints=""
 portals=""
 lethal_areas=""
 door=""
+save_points=""
 
 [input]
 
