@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkcuhydfa8a16"]
+
+[ext_resource type="Texture2D" uid="uid://dle720e4o4klr" path="res://sprites/cover_image.png" id="1_l0w5m"]
+[ext_resource type="Theme" uid="uid://dy0uvhrtyw06f" path="res://resources/theme.tres" id="2_f5gwg"]
+[ext_resource type="FontFile" uid="uid://bron36i8qv6t0" path="res://resources/CinzelDecorative-Regular.ttf" id="3_u4pqp"]
+
+[node name="Cover" type="Node2D"]
+
+[node name="CoverImage" type="Sprite2D" parent="."]
+position = Vector2(320, 256)
+texture = ExtResource("1_l0w5m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 227.0
+offset_right = 493.0
+offset_bottom = 314.0
+theme = ExtResource("2_f5gwg")
+theme_override_fonts/font = ExtResource("3_u4pqp")
+theme_override_font_sizes/font_size = 64
+text = "Arpeggio"
