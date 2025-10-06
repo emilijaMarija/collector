@@ -105,8 +105,16 @@ func _set_up_lethal_areas():
 			if body == player:
 				call_deferred("_die"))
 
+func _set_up_notes():
+	var notes = get_tree().get_nodes_in_group(Group.NOTES) as Array[CollectibleNote]
+	for note in notes:
+		if ability_registry.has_ability(ABILITY_NOTES[note.note]):
+			# Remove notes which have already been collected
+			note.queue_free()
+
 func _ready() -> void:
 	enter.connect(_lvl_enter)
 	_set_up_portals()
 	_set_up_note_interactions()
 	_set_up_lethal_areas()
+	_set_up_notes()
