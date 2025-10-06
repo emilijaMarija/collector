@@ -8,6 +8,7 @@ enum {
 	LEVEL_3,
 	LEVEL_4,
 	LEVEL_5,
+	LEVEL_6,
 }
 
 const LEVEL_SCENES: Dictionary[int, PackedScene] = {
@@ -16,6 +17,7 @@ const LEVEL_SCENES: Dictionary[int, PackedScene] = {
 	LEVEL_3: preload("res://scenes/level_3.tscn"),
 	LEVEL_4: preload("res://scenes/level_4.tscn"),
 	LEVEL_5: preload("res://scenes/level_5.tscn"),
+	LEVEL_6: preload("res://scenes/level_6.tscn"),
 }
 
 static func create(level: int, ability_registry: AbilityRegistry, composer: Composer) -> Level:

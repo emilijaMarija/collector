@@ -24,6 +24,6 @@ func _lvl_exit(waypoint: int):
 	_lvl.enter.emit(waypoint)
 
 func _ready() -> void:
-	_switch_level(LevelFactory.LEVEL_1)
-	_lvl.enter.emit(Waypoint.WP.SPAWN_POINT)
+	_switch_level(LevelFactory.LEVEL_5)
+	_lvl.enter.emit(Waypoint.WP.HOUSE_WALKWAY)
 	

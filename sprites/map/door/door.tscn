@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1jv2trow8sgw"]
+
+[ext_resource type="Script" uid="uid://dmfx7q8bm44ij" path="res://src/common/door.gd" id="1_esj1h"]
+[ext_resource type="Texture2D" uid="uid://cnndrm7uj3gvo" path="res://sprites/map/door/door_lock.png" id="2_w7if3"]
+[ext_resource type="Theme" uid="uid://dy0uvhrtyw06f" path="res://resources/theme.tres" id="3_w7if3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_576lp"]
+radius = 109.9
+
+[node name="InteractionArea" type="Area2D" groups=["door"]]
+script = ExtResource("1_esj1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_576lp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_w7if3")
+
+[node name="InfoTooltip" type="Label" parent="."]
+visible = false
+offset_left = -52.5
+offset_top = -42.0
+offset_right = 52.5
+offset_bottom = -20.0
+theme = ExtResource("3_w7if3")
+text = "Press E to unlock"

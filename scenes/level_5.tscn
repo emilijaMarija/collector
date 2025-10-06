@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=4 uid="uid://ctnr8iep8ihpl"]
+[gd_scene load_steps=10 format=4 uid="uid://ctnr8iep8ihpl"]
 
 [ext_resource type="Script" uid="uid://bat6lco1t2r5b" path="res://src/scenes/game/level_5.gd" id="1_ak5vt"]
 [ext_resource type="Texture2D" uid="uid://cvbvajn3c8esh" path="res://sprites/map/background_houses/layer1.png" id="2_ak5vt"]
 [ext_resource type="Texture2D" uid="uid://cvh836nbihmho" path="res://sprites/map/background_houses/layer0.png" id="3_ij176"]
 [ext_resource type="TileSet" uid="uid://c4tt75ef17hgf" path="res://sprites/map/map.tres" id="4_vqwqk"]
 [ext_resource type="Script" uid="uid://bv7wihm70a6fb" path="res://src/common/waypoint.gd" id="6_e4ab4"]
-[ext_resource type="Texture2D" uid="uid://cnndrm7uj3gvo" path="res://sprites/map/door_lock.png" id="7_ak5vt"]
+[ext_resource type="PackedScene" uid="uid://c1jv2trow8sgw" path="res://sprites/map/door/door.tscn" id="7_ak5vt"]
 [ext_resource type="Script" uid="uid://sj0dokp5eenu" path="res://src/common/portal.gd" id="7_xxvx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak5vt"]
 size = Vector2(20, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij176"]
+size = Vector2(20, 73)
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_ak5vt")
@@ -19,7 +22,7 @@ scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(0, 731.75)
 
 [node name="layer1" type="Sprite2D" parent="background"]
-position = Vector2(0, -619.95)
+position = Vector2(-15, -638.75)
 texture = ExtResource("2_ak5vt")
 
 [node name="foreground" type="Parallax2D" parent="."]
@@ -41,6 +44,11 @@ position = Vector2(-1193, 74)
 script = ExtResource("6_e4ab4")
 wp = 5
 
+[node name="End tunnel" type="Node2D" parent="Waypoints" groups=["waypoints"]]
+position = Vector2(750, -278)
+script = ExtResource("6_e4ab4")
+wp = 6
+
 [node name="Portals" type="Node" parent="."]
 
 [node name="House walkway" type="Area2D" parent="Portals" groups=["portals"]]
@@ -52,6 +60,13 @@ target = 5
 position = Vector2(-6, 231.5)
 shape = SubResource("RectangleShape2D_ak5vt")
 
-[node name="Door" type="Sprite2D" parent="."]
+[node name="Door" parent="." instance=ExtResource("7_ak5vt")]
 position = Vector2(832, -320)
-texture = ExtResource("7_ak5vt")
+locked = true
+
+[node name="LockedPortal" type="Area2D" parent="."]
+position = Vector2(665, -311)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockedPortal"]
+position = Vector2(141, 20)
+shape = SubResource("RectangleShape2D_ij176")

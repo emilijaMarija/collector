@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://cc7bmi0vvdd3f"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://cc7bmi0vvdd3f"]
 
 [ext_resource type="Texture2D" uid="uid://df02pa7ttrs3c" path="res://sprites/player/dash/guy1.png" id="1_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://bn7x06rgijbvv" path="res://sprites/player/fall/guy1.png" id="1_yoh8e"]
@@ -27,6 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://dra8jgt34f426" path="res://sprites/player/walk/guy6.png" id="10_l345b"]
 [ext_resource type="Texture2D" uid="uid://ecennvk8oir0" path="res://sprites/player/walk/guy7.png" id="11_2vqe3"]
 [ext_resource type="Texture2D" uid="uid://qg3vyrexroxt" path="res://sprites/player/walk/guy8.png" id="12_6nhjp"]
+[ext_resource type="Texture2D" uid="uid://deki5jhocpyd0" path="res://sprites/player/unlock/guy1.png" id="28_d62gn"]
+[ext_resource type="Texture2D" uid="uid://ddoucpnsxrdij" path="res://sprites/player/unlock/guy2.png" id="29_kak41"]
+[ext_resource type="Texture2D" uid="uid://cvjjc6niwx6k" path="res://sprites/player/unlock/guy3.png" id="30_tok6p"]
+[ext_resource type="Texture2D" uid="uid://ch7rutpc4ogjc" path="res://sprites/player/unlock/guy4.png" id="31_biyhv"]
+[ext_resource type="Texture2D" uid="uid://djvtdn3x234f5" path="res://sprites/player/unlock/guy5.png" id="32_ohf4t"]
+[ext_resource type="Texture2D" uid="uid://doqe75lp7nowq" path="res://sprites/player/unlock/guy6.png" id="33_5awyc"]
+[ext_resource type="Texture2D" uid="uid://banjqt2vny42b" path="res://sprites/player/unlock/guy7.png" id="34_wyc1q"]
 
 [resource]
 animations = [{
@@ -160,6 +167,32 @@ animations = [{
 "loop": true,
 "name": &"sprint",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_d62gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_kak41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tok6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_biyhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ohf4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_5awyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_wyc1q")
+}],
+"loop": false,
+"name": &"unlock",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 0.2,

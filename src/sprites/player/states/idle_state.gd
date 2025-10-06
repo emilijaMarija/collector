@@ -20,3 +20,6 @@ func _process(_delta):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
 	elif persistent_state.can_dash() and persistent_state.is_attempting_dash():
 		change_state.call(StateFactory.STATE_DASH)
+	elif persistent_state.can_unlock() and Input.is_action_just_pressed(GameInput.UNLOCK):
+		change_state.call(StateFactory.STATE_UNLOCKING)
+	

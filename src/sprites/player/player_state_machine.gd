@@ -35,9 +35,14 @@ func can_dash():
 func can_sprint():
 	return _ability_registry.has_ability(AbilityRegistry.Ability.SPRINT) and stamina >= PlayerConstants.MIN_SPRINT_STAMINA_THRESHOLD
 	
+func can_unlock():
+	return _ability_registry.has_ability(AbilityRegistry.Ability.UNLOCK_DOOR)
 
 func is_attempting_dash():
 	return Input.is_action_just_pressed(GameInput.DASH)
+
+func has_ability(ability: AbilityRegistry.Ability):
+	return _ability_registry.has_ability(ability)
 
 func _ready():
 	_state_factory = StateFactory.new()
