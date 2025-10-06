@@ -11,6 +11,6 @@ func _lvl_enter(wp: Waypoint.WP):
 		intro_screen.end.connect(func():
 			remove_child(intro_screen)
 			ability_registry.unlock_ability(AbilityRegistry.Ability.WALK)
+			composer.start()
 			composer.add_note(Composer.Note.C)
 			)
-		pass

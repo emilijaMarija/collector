@@ -1,7 +1,7 @@
 extends Node
 
-@onready var _ability_registry = $AbilityRegistry
-@onready var _composer = $Composer
+@onready var _ability_registry: AbilityRegistry = $AbilityRegistry
+@onready var _composer: Composer = $Composer
 
 var _lvl: Level
 
@@ -26,3 +26,4 @@ func _lvl_exit(waypoint: int):
 func _ready() -> void:
 	_switch_level(LevelFactory.LEVEL_1)
 	_lvl.enter.emit(Waypoint.WP.SPAWN_POINT)
+	
