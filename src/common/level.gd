@@ -40,6 +40,9 @@ func _spawn_player(waypoint: Waypoint):
 	get_tree().create_timer(0.1).timeout.connect(func(): camera.position_smoothing_enabled = true)
 
 func _die():
+	if player.state_name == StateFactory.STATE_DIE:
+		# Player is already dead
+		return
 	player.change_state(StateFactory.STATE_DIE)
 	get_tree().create_timer(DIE_DELAY_SECONDS).timeout.connect(func():
 		remove_child(player)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://1kt6nkpqo1oh"]
+[gd_scene load_steps=22 format=4 uid="uid://1kt6nkpqo1oh"]
 
 [ext_resource type="Script" uid="uid://bie22cvnorun6" path="res://src/scenes/game/level_2.gd" id="1_3bmlt"]
 [ext_resource type="Texture2D" uid="uid://bxogv7uw8wh2l" path="res://sprites/map/background_roots/layer4.png" id="2_172wr"]
@@ -15,6 +15,87 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2mo"]
 size = Vector2(20, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_172wr"]
+size = Vector2(188, 28)
+
+[sub_resource type="Animation" id="Animation_g2hoc"]
+resource_name = "Platform1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-448, -336), Vector2(-448, -174.78), Vector2(-448, -336)]
+}
+
+[sub_resource type="Animation" id="Animation_fldb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-448, -336)]
+}
+
+[sub_resource type="Animation" id="Animation_172wr"]
+resource_name = "Platform2"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-224, -336), Vector2(-224, -175), Vector2(-224, -336)]
+}
+
+[sub_resource type="Animation" id="Animation_guvtl"]
+resource_name = "Platform3"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -336), Vector2(-1, -175), Vector2(-1, -336)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guvtl"]
+_data = {
+&"Platform1": SubResource("Animation_g2hoc"),
+&"Platform2": SubResource("Animation_172wr"),
+&"Platform3": SubResource("Animation_guvtl"),
+&"RESET": SubResource("Animation_fldb1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igmy8"]
+size = Vector2(124, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdtqu"]
+size = Vector2(188, 28)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_3bmlt")
@@ -90,14 +171,47 @@ target = 4
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ne2mo")
 
-[node name="LongFallingPlatform" type="Sprite2D" parent="."]
+[node name="Platform1" type="Sprite2D" parent="."]
 position = Vector2(-448, -336)
 texture = ExtResource("8_6cvei")
 
-[node name="FallingPlatform" type="Sprite2D" parent="."]
-position = Vector2(-224, -336)
+[node name="Lethal area" type="Area2D" parent="Platform1" groups=["lethal_areas"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/Lethal area"]
+shape = SubResource("RectangleShape2D_172wr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform1"]
+libraries = {
+&"": SubResource("AnimationLibrary_guvtl")
+}
+autoplay = "Platform1"
+
+[node name="Platform2" type="Sprite2D" parent="."]
+position = Vector2(-448, -336)
 texture = ExtResource("9_que50")
 
-[node name="LongFallingPlatform2" type="Sprite2D" parent="."]
-position = Vector2(0, -336)
+[node name="Lethal area" type="Area2D" parent="Platform2" groups=["lethal_areas"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/Lethal area"]
+shape = SubResource("RectangleShape2D_igmy8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_guvtl")
+}
+autoplay = "Platform1"
+
+[node name="Platform3" type="Sprite2D" parent="."]
+position = Vector2(-448, -336)
 texture = ExtResource("8_6cvei")
+
+[node name="Lethal area" type="Area2D" parent="Platform3" groups=["lethal_areas"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/Lethal area"]
+shape = SubResource("RectangleShape2D_wdtqu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform3"]
+libraries = {
+&"": SubResource("AnimationLibrary_guvtl")
+}
+autoplay = "Platform1"

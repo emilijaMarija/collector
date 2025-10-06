@@ -9,6 +9,7 @@ var num_jumps = 0
 var stamina = PlayerConstants.MAX_STAMINA
 var last_dash: float = 0
 var frozen = false
+var state_name: int
 
 var _state: State
 var _state_factory: StateFactory
@@ -46,9 +47,10 @@ func _physics_process(_delta: float):
 	stamina += PlayerConstants.STAMINA_REGEN_RATE * _delta
 	stamina = min(stamina, PlayerConstants.MAX_STAMINA)
 
-func change_state(new_state_name):
+func change_state(new_state_name: int):
 	if _state != null:
 		_state.queue_free()
 	_state = _state_factory.get_state(new_state_name).new()
 	_state.setup(Callable(self, "change_state"), $AnimatedSprite2D, self)
 	add_child(_state)
+	state_name = new_state_name
