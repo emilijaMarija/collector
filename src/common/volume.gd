@@ -9,3 +9,4 @@ const HIGH_JUMP: float = 0.5
 const DASH: float = 0.2
 const DEATH: float = 0.4
 const INTRO_JINGLE: float = 0.5
+const UNLOCK_JINGLE: float = 1.0

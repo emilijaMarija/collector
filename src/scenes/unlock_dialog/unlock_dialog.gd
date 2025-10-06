@@ -11,6 +11,8 @@ static var _scene: PackedScene = preload("res://scenes/unlock_dialog.tscn")
 @onready var _center_bottom_text_label: Label = $Container/CenterBottomLabel
 @onready var _bottom_text_label: Label = $Container/BottomLabel
 
+const _unlock_jingle: AudioStream = preload("res://sound/music/ability_unlock.wav")
+
 var _top_text: String
 var _center_text: String
 var _center_bottom_text: String
@@ -33,6 +35,7 @@ func _ready() -> void:
 	_change_center_bottom_text(_center_bottom_text)
 	_change_bottom_text(_bottom_text)
 	get_tree().create_timer(1.5).timeout.connect(func(): _can_close = true)
+	OneShotSound.play(_unlock_jingle, Volume.UNLOCK_JINGLE)
 
 
 func _change_top_text(text: String):
