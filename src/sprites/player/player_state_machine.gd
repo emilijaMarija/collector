@@ -44,6 +44,9 @@ func is_attempting_dash():
 func has_ability(ability: AbilityRegistry.Ability):
 	return _ability_registry.has_ability(ability)
 
+func can_walk():
+	return _ability_registry.has_ability(AbilityRegistry.Ability.WALK)
+
 func _ready():
 	_state_factory = StateFactory.new()
 	change_state(StateFactory.STATE_IDLE)

@@ -14,7 +14,7 @@ func _process(_delta):
 		return
 	if not persistent_state.is_on_floor():
 		change_state.call(StateFactory.STATE_FALL)
-	if Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) != 0:
+	if persistent_state.can_walk() and Input.get_axis(GameInput.WALK_LEFT, GameInput.WALK_RIGHT) != 0:
 		change_state.call(StateFactory.STATE_WALK)
 	elif persistent_state.can_jump() and Input.is_action_pressed(GameInput.JUMP):
 		change_state.call(StateFactory.STATE_JUMP_KNEEL)
