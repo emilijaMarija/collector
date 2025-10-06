@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://cc7bmi0vvdd3f"]
+[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://cc7bmi0vvdd3f"]
 
 [ext_resource type="Texture2D" uid="uid://df02pa7ttrs3c" path="res://sprites/player/dash/guy1.png" id="1_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://bn7x06rgijbvv" path="res://sprites/player/fall/guy1.png" id="1_yoh8e"]
@@ -15,10 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://dll5rwkj4yxlc" path="res://sprites/player/walk/guy2.png" id="6_n4rx3"]
 [ext_resource type="Texture2D" uid="uid://blfcd23cncnvy" path="res://sprites/player/double_jump/guy1.png" id="7_6nhjp"]
 [ext_resource type="Texture2D" uid="uid://ca8llrxfphdvh" path="res://sprites/player/walk/guy3.png" id="7_ie5yv"]
+[ext_resource type="Texture2D" uid="uid://8jpoob710ujh" path="res://sprites/player/dead/guy1.png" id="7_vgeet"]
+[ext_resource type="Texture2D" uid="uid://dvqho8k8u1elx" path="res://sprites/player/dead/guy2.png" id="8_dg48k"]
 [ext_resource type="Texture2D" uid="uid://7yt4qecwd7mh" path="res://sprites/player/double_jump/guy2.png" id="8_gcm87"]
 [ext_resource type="Texture2D" uid="uid://chl55wac3bmqu" path="res://sprites/player/walk/guy4.png" id="8_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://rnqnr6kkyp3" path="res://sprites/player/walk/guy5.png" id="9_70sbq"]
+[ext_resource type="Texture2D" uid="uid://cqshtcoci8an0" path="res://sprites/player/dead/guy3.png" id="9_hjc5x"]
 [ext_resource type="Texture2D" uid="uid://c270i53xqulb6" path="res://sprites/player/double_jump/guy3.png" id="9_qyvhh"]
+[ext_resource type="Texture2D" uid="uid://sv7x6lwweqbg" path="res://sprites/player/dead/guy4.png" id="10_7f840"]
 [ext_resource type="Texture2D" uid="uid://cm73cayw1xmwi" path="res://sprites/player/double_jump/guy4.png" id="10_ioyxl"]
 [ext_resource type="Texture2D" uid="uid://dra8jgt34f426" path="res://sprites/player/walk/guy6.png" id="10_l345b"]
 [ext_resource type="Texture2D" uid="uid://ecennvk8oir0" path="res://sprites/player/walk/guy7.png" id="11_2vqe3"]
@@ -48,6 +52,23 @@ animations = [{
 "loop": false,
 "name": &"dash",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vgeet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dg48k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hjc5x")
+}, {
+"duration": 6.0,
+"texture": ExtResource("10_7f840")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
