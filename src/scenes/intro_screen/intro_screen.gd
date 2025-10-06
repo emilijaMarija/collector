@@ -15,6 +15,7 @@ static func create():
 	return intro
 
 enum ANIM {
+	ZEROTH,
 	FIRST,
 	SECOND,
 	THIRD,
@@ -23,6 +24,7 @@ enum ANIM {
 }
 
 var animation_names = {
+	ANIM.ZEROTH: "any_btn",
 	ANIM.FIRST: "intro_screen",
 	ANIM.SECOND: "second_text",
 	ANIM.THIRD: "third_text",
@@ -47,12 +49,13 @@ const _volumes: Array[float] = [
 func _play_jingle():
 	OneShotSound.play(_intro_jingle, Volume.INTRO_JINGLE)
 
-func _ready() -> void:
-	call_deferred("_play_jingle")
-
 var _current_animation = 0
 
 func _input(event: InputEvent) -> void:
+	if _current_animation == 0 and event is InputEventMouseButton and event.pressed:
+		_current_animation += 1
+		call_deferred("_play_jingle")
+		animation_player.play(animation_names[_current_animation])
 	if (event is InputEventMouseButton or event is InputEventKey) and event.pressed:
 		if not animation_player.current_animation == animation_names[_current_animation]:
 			if not _current_animation == ANIM.LAST:

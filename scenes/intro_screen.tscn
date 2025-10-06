@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1xpearnjg3jx"]
+[gd_scene load_steps=15 format=3 uid="uid://1xpearnjg3jx"]
 
 [ext_resource type="Script" uid="uid://bki4f2qwi3leh" path="res://src/scenes/intro_screen/intro_screen.gd" id="1_knwjy"]
 [ext_resource type="Theme" uid="uid://dy0uvhrtyw06f" path="res://resources/theme.tres" id="2_q1oon"]
@@ -81,6 +81,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopMargin0:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q1oon"]
 resource_name = "intro_screen"
@@ -108,6 +120,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TopMargin0:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a7v8x"]
@@ -234,9 +258,13 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7hc1p"]
+resource_name = "any_btn"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hukxe"]
 _data = {
 &"RESET": SubResource("Animation_2i7sm"),
+&"any_btn": SubResource("Animation_7hc1p"),
 &"intro_screen": SubResource("Animation_q1oon"),
 &"last_anim": SubResource("Animation_a7v8x"),
 &"second_text": SubResource("Animation_g5fjw"),
@@ -255,6 +283,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_q1oon")
 color = Color(0.11764706, 0.1254902, 0, 1)
+
+[node name="TopMargin0" type="MarginContainer" parent="."]
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme = ExtResource("2_q1oon")
+theme_override_constants/margin_top = 32
+
+[node name="TopText" type="Label" parent="TopMargin0"]
+layout_mode = 2
+theme = ExtResource("2_q1oon")
+text = "Click anywhere to begin"
+horizontal_alignment = 1
 
 [node name="TopMargin" type="MarginContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -395,7 +437,6 @@ stretch_mode = 4
 libraries = {
 &"": SubResource("AnimationLibrary_hukxe")
 }
-autoplay = "intro_screen"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
