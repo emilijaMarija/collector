@@ -11,7 +11,9 @@ script = ExtResource("1_qj5tt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_xqq6n")
-animation = &"land"
+animation = &"dash"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

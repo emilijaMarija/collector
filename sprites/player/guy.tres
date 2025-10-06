@@ -1,11 +1,17 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cc7bmi0vvdd3f"]
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cc7bmi0vvdd3f"]
 
+[ext_resource type="Texture2D" uid="uid://df02pa7ttrs3c" path="res://sprites/player/dash/guy1.png" id="1_uh4r7"]
 [ext_resource type="Texture2D" uid="uid://bn7x06rgijbvv" path="res://sprites/player/fall/guy1.png" id="1_yoh8e"]
 [ext_resource type="Texture2D" uid="uid://bse1ulptdqidw" path="res://sprites/player/fall/guy2.png" id="2_1xo8s"]
+[ext_resource type="Texture2D" uid="uid://bl7eiops34bfp" path="res://sprites/player/dash/guy2.png" id="2_70sbq"]
+[ext_resource type="Texture2D" uid="uid://cug4dud3m2w8p" path="res://sprites/player/dash/guy3.png" id="3_l345b"]
 [ext_resource type="Texture2D" uid="uid://c5aa2ygh4u1k5" path="res://sprites/player/stationary.png" id="3_r14jr"]
 [ext_resource type="Texture2D" uid="uid://cfhjhmh3511yk" path="res://sprites/player/jump/guy2.png" id="4_1xo8s"]
+[ext_resource type="Texture2D" uid="uid://cho33jrylfwly" path="res://sprites/player/dash/guy4.png" id="4_2vqe3"]
 [ext_resource type="Texture2D" uid="uid://dtxslxg0fmrjt" path="res://sprites/player/jump/guy1.png" id="4_b2kt8"]
+[ext_resource type="Texture2D" uid="uid://chyhxg6jj7470" path="res://sprites/player/dash/guy5.png" id="5_6nhjp"]
 [ext_resource type="Texture2D" uid="uid://6n2wi4sgg7th" path="res://sprites/player/walk/guy1.png" id="5_nljew"]
+[ext_resource type="Texture2D" uid="uid://cqktrsxxpsj4o" path="res://sprites/player/dash/guy6.png" id="6_gcm87"]
 [ext_resource type="Texture2D" uid="uid://dll5rwkj4yxlc" path="res://sprites/player/walk/guy2.png" id="6_n4rx3"]
 [ext_resource type="Texture2D" uid="uid://ca8llrxfphdvh" path="res://sprites/player/walk/guy3.png" id="7_ie5yv"]
 [ext_resource type="Texture2D" uid="uid://chl55wac3bmqu" path="res://sprites/player/walk/guy4.png" id="8_uh4r7"]
@@ -18,11 +24,26 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1xo8s")
+"texture": ExtResource("1_uh4r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_70sbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l345b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2vqe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6nhjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gcm87")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
