@@ -63,11 +63,14 @@ func _input(event: InputEvent) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == animation_names[ANIM.FIRST]:
 		OneShotSound.play(_guitar_talk_sounds[0], Volume.GUITAR_TALK_1)
-	elif anim_name == animation_names[ANIM.SECOND]:
-		OneShotSound.play(_guitar_talk_sounds[1], Volume.GUITAR_TALK_2)
-	elif anim_name == animation_names[ANIM.THIRD]:
-		OneShotSound.play(_guitar_talk_sounds[2], Volume.GUITAR_TALK_3)
 	elif anim_name == animation_names[ANIM.UNLOCK]:
 		OneShotSound.play(_unlock_sound, Volume.UNLOCK_JINGLE)
 	if anim_name == animation_names[ANIM.LAST]:
 		end.emit()
+
+
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
+	if anim_name == animation_names[ANIM.SECOND]:
+		OneShotSound.play(_guitar_talk_sounds[1], Volume.GUITAR_TALK_2)
+	elif anim_name == animation_names[ANIM.THIRD]:
+		OneShotSound.play(_guitar_talk_sounds[2], Volume.GUITAR_TALK_3)

@@ -43,11 +43,14 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == animation_names[ANIM.LAST]:
+		end.emit()
+
+
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	if anim_name == animation_names[ANIM.FIRST]:
 		OneShotSound.play(_violin_talk[0], Volume.VIOLIN_TALK_1)
 	elif anim_name == animation_names[ANIM.SECOND]:
 		OneShotSound.play(_violin_talk[1], Volume.VIOLIN_TALK_2)
 	elif anim_name == animation_names[ANIM.THIRD]:
 		OneShotSound.play(_violin_talk[2], Volume.VIOLIN_TALK_3)
-	if anim_name == animation_names[ANIM.LAST]:
-		end.emit()
