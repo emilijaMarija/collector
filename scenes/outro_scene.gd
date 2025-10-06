@@ -6,6 +6,12 @@ signal end
 
 static var _outro_scene: PackedScene = preload("res://scenes/outro_scene.tscn")
 
+const _violin_talk: Array[AudioStream] = [
+	preload("res://sound/music/violin_talk_1.wav"),
+	preload("res://sound/music/violin_talk_2.wav"),
+	preload("res://sound/music/violin_talk_3.wav")
+]
+
 static func create():
 	var outro = _outro_scene.instantiate()
 	return outro
@@ -37,5 +43,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == animation_names[ANIM.FIRST]:
+		OneShotSound.play(_violin_talk[0], Volume.VIOLIN_TALK_1)
+	elif anim_name == animation_names[ANIM.SECOND]:
+		OneShotSound.play(_violin_talk[1], Volume.VIOLIN_TALK_2)
+	elif anim_name == animation_names[ANIM.THIRD]:
+		OneShotSound.play(_violin_talk[2], Volume.VIOLIN_TALK_3)
 	if anim_name == animation_names[ANIM.LAST]:
 		end.emit()
