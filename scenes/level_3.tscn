@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://0ycd1up1cta4"]
+[gd_scene load_steps=13 format=4 uid="uid://0ycd1up1cta4"]
 
 [ext_resource type="Script" uid="uid://drx4awcd2t0wn" path="res://src/scenes/game/level_3.gd" id="1_1pn4d"]
 [ext_resource type="Texture2D" uid="uid://cd3w1ldrgux6g" path="res://sprites/map/background_trees/layer0.png" id="2_ah8om"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://sj0dokp5eenu" path="res://src/common/portal.gd" id="5_ah8om"]
 [ext_resource type="Script" uid="uid://bv7wihm70a6fb" path="res://src/common/waypoint.gd" id="5_ha73p"]
 [ext_resource type="PackedScene" uid="uid://c4rayw7a8appj" path="res://sprites/note/note.tscn" id="5_hhfj6"]
+[ext_resource type="Texture2D" uid="uid://bp34th3ujtmu4" path="res://sprites/details/dead_friend.png" id="8_wae8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6vls"]
 size = Vector2(20, 97)
@@ -94,3 +95,7 @@ position = Vector2(498, -14)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lethal areas/Spike2"]
 position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_ha73p")
+
+[node name="DeadFriend" type="Sprite2D" parent="."]
+position = Vector2(301, -490)
+texture = ExtResource("8_wae8j")
