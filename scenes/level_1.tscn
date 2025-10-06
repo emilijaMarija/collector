@@ -56,7 +56,7 @@ note = 5
 [node name="Waypoints" type="Node" parent="."]
 
 [node name="Spawn" type="Node2D" parent="Waypoints" groups=["waypoints"]]
-position = Vector2(-331, -43)
+position = Vector2(-332, -30)
 script = ExtResource("8_15mv3")
 wp = 1
 
