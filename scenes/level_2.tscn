@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://1kt6nkpqo1oh"]
+[gd_scene load_steps=11 format=4 uid="uid://1kt6nkpqo1oh"]
 
 [ext_resource type="Script" uid="uid://bie22cvnorun6" path="res://src/scenes/game/level_2.gd" id="1_3bmlt"]
 [ext_resource type="Texture2D" uid="uid://dvfbexyw2bclr" path="res://sprites/map/background_trees/layer1.png" id="2_wo48x"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c4rayw7a8appj" path="res://sprites/note/note.tscn" id="4_y0kc7"]
 [ext_resource type="Script" uid="uid://bv7wihm70a6fb" path="res://src/common/waypoint.gd" id="5_ne2mo"]
 [ext_resource type="Script" uid="uid://sj0dokp5eenu" path="res://src/common/portal.gd" id="7_y0kc7"]
+[ext_resource type="Texture2D" uid="uid://48h7njwqb5s" path="res://sprites/map/long_falling_platform.png" id="8_6cvei"]
+[ext_resource type="Texture2D" uid="uid://duh4ne16cxvml" path="res://sprites/map/falling_platform.png" id="9_que50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2mo"]
 size = Vector2(20, 130)
@@ -59,3 +61,15 @@ target = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Roots walkway"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ne2mo")
+
+[node name="LongFallingPlatform" type="Sprite2D" parent="."]
+position = Vector2(-448, -336)
+texture = ExtResource("8_6cvei")
+
+[node name="FallingPlatform" type="Sprite2D" parent="."]
+position = Vector2(-224, -336)
+texture = ExtResource("9_que50")
+
+[node name="LongFallingPlatform2" type="Sprite2D" parent="."]
+position = Vector2(0, -336)
+texture = ExtResource("8_6cvei")
