@@ -4,6 +4,8 @@ class_name IntroScreen
 
 signal end
 
+const _intro_jingle: AudioStream = preload("res://sound/music/Intro.wav")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 static var _intro_scene: PackedScene = preload("res://scenes/intro_screen.tscn")
@@ -27,6 +29,12 @@ var animation_names = {
 	ANIM.UNLOCK: "unlock_display",
 	ANIM.LAST: "last_anim"
 }
+
+func _play_jingle():
+	OneShotSound.play(_intro_jingle, Volume.INTRO_JINGLE)
+
+func _ready() -> void:
+	call_deferred("_play_jingle")
 
 var _current_animation = 0
 
